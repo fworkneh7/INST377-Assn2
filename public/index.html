@@ -11,6 +11,9 @@
     <h1>Assignment 2</h1>
     <form>
         <input type="text" id="textinput" class="text-input" placeholder="Type Restaurant Category"/>
+        <ul class="suggestions">
+
+        </ul>
     </form>
     </div>
 </div>
@@ -31,10 +34,9 @@ function findMatches(wordToMatch, restaurants){
 }
 
 function displayMatches(){
-    const matchArray = findmatches(this.value, restaurants);
+    const matchArray = findMatches(this.value, restaurants);
     const html = matchArray.map(place => {
         return `
-        <ul>
         <li>
         <span class="name">${place.name}</span>
         <span class="category">${place.category}</span><br />
@@ -43,13 +45,12 @@ function displayMatches(){
             ${place.city}
         </address>
         </li>
-        </ul>
     `;
     }).join('');
     suggestions.innerHTML = html;
 }
 
-const searchInput = document.querySelector('.search');
+const searchInput = document.querySelector('.text-input');
 const suggestions = document.querySelector('.suggestions');
 
 searchInput.addEventListener('change', displayMatches);
