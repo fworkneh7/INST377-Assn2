@@ -1,60 +1,32 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assignment 2 for Matthew Chan and Frazer Workneh</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
 <body>
-<div class="wrapper">
     <div class="container">
-    <h1>Assignment 2</h1>
-    <form>
-        <input type="text" id="textinput" class="text-input" placeholder="Type Restaurant Category"/>
-        <ul class="suggestions">
+      <div class="row">
+        <div class="left"></div>
+        <div class="middle" style="margin-top: 10%; bottom: 10%">
+          <h1>Assignment 2 for Matthew Chan and Frazer Workneh</h1>
+          <form>
+            <input type="text" id="textinput" class="text-input" placeholder="Type Restaurant Category"/>
+            <ul class="suggestions">
 
         </ul>
     </form>
+        </div>
+        <div class="right"></div>
+      </div>
     </div>
-</div>
-
-
-<script>
-const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
-const restaurants = []
-fetch(endpoint)
-    .then(resj => resj.json())
-    .then(data => restaurants.push(...data))
-
-function findMatches(wordToMatch, restaurants){
-    return restaurants.filter(place=> {
-        const regex = new RegExp(wordToMatch, 'gi');
-        return place.restaurants.match(regex);
-    });
-}
-
-function displayMatches(){
-    const matchArray = findMatches(this.value, restaurants);
-    const html = matchArray.map(place => {
-        return `
-        <li>
-        <span class="name">${place.name}</span>
-        <span class="category">${place.category}</span><br />
-        <address class="address">
-            ${place.address_line_1}
-            ${place.city}
-        </address>
-        </li>
-    `;
-    }).join('');
-    suggestions.innerHTML = html;
-}
-
-const searchInput = document.querySelector('.text-input');
-const suggestions = document.querySelector('.suggestions');
-
-searchInput.addEventListener('change', displayMatches);
-searchInput.addEventListener('keyup', displayMatches);
-</script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
