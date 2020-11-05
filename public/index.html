@@ -4,50 +4,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 2 for Matthew Chan and Frazer Workneh</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
-      crossorigin="anonymous">
-    </script>
 </head>
 <body>
 <div class="wrapper">
+    <div class="container">
+    <h1>Assignment 2</h1>
     <form>
-        <input type="text" id="input">
+        <input type="text" id="textinput" class="text-input" placeholder="Type Restaurant Category"/>
     </form>
+    </div>
 </div>
+
+
 <script>
-    const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
-    const restaurants = []
-    fetch(endpoint)
-        .then(resj => resj.json())
-        .then(data => restaurants.push(...data))
+const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
+const restaurants = []
+fetch(endpoint)
+    .then(resj => resj.json())
+    .then(data => restaurants.push(...data))
 
-    function findMatches(wordToMatch, restaurants){
-        return restaurants.filter(place=> {
-            const regex = new RegExp(wordToMatch, 'gi');
-            return place.restaurants.match(regex);
-        });
-    }
+function findMatches(wordToMatch, restaurants){
+    return restaurants.filter(place=> {
+        const regex = new RegExp(wordToMatch, 'gi');
+        return place.restaurants.match(regex);
+    });
+}
 
-    function displayMatches(){
-        const matchArray = findmatches(this.value, restaurants);
-        const html = matchArray.map(place => {
-            return
-            <li>
-            <span class="name">${place.name}</span>
-            <span class="category">${place.category}</span>
-            <span class="address1">${place.address_line_1}</span>
-            <span class="city">${place.city}</span>
-            </li>
-        }
-    }
+function displayMatches(){
+    const matchArray = findmatches(this.value, restaurants);
+    const html = matchArray.map(place => {
+        return `
+        <ul>
+        <li>
+        <span class="name">${place.name}</span>
+        <span class="category">${place.category}</span><br />
+        <address class="address">
+            ${place.address_line_1}
+            ${place.city}
+        </address>
+        </li>
+        </ul>
+    `;
+    }).join('');
+    suggestions.innerHTML = html;
+}
 
-    const searchInput = document.querySelector('.search');
-    const suggestions = document.querySelector('.suggestions');
+const searchInput = document.querySelector('.search');
+const suggestions = document.querySelector('.suggestions');
 
-    searchInput.addEventListener('change', displayMatches);
-    searchInput.addEventListener('keyup', displayMatches);
-
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
 </script>
 </body>
+</html>
