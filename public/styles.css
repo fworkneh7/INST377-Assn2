@@ -42,7 +42,7 @@ h1 {
     align-items: flex-start;
   }
 
-style="margin-top: 10%; bottom: 10%"
+/* style="margin-top: 10%; bottom: 10%" */
 
 @media screen and (max-width: 1600px) {
   .container {
