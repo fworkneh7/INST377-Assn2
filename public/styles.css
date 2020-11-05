@@ -1,0 +1,49 @@
+/*CSS*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: serif;
+  background: #3895a8;
+}
+
+.left, .right {
+  background: #3895a8;
+  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+
+.middle {
+  background: #3895a8;
+  width: 960px;
+}
+
+h1 {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 960px;
+    min-height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+@media screen and (max-width: 1600px) {
+  .container {
+    justify-content: center;
+  }
+}
