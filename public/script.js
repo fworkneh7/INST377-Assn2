@@ -14,6 +14,7 @@ function findMatches(wordToMatch, restaurants){
 function displayMatches(){
     const matchArray = findmatches(this.value, restaurants);
     const html = matchArray.map(place => {
+        return `
         <ul>
         <li>
         <span class="name">${place.name}</span>
@@ -24,20 +25,10 @@ function displayMatches(){
         </address>
         </li>
         </ul>
+    `;
     }).join('');
     suggestions.innerHTML = html;
 }
-
-document.body.addEventListener('submit', async (e) => {
-    e.preventDefault(); // this stops whatever the browser wanted to do itself.
-    const form = $(e.target).serializeArray(); // here we're using jQuery to serialize the form
-    fetch('/api', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(form)
-    })
 
 const searchInput = document.querySelector('.search');
 const suggestions = document.querySelector('.suggestions');
