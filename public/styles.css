@@ -18,20 +18,22 @@ body {
 
 .middle {
   background: #5cc6db;
-  width: 960px;
+  /* width: 960px; */
 }
 
 h1 {
+    max-width: 480px;
     color: #fff;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    /* margin: 0; */
     margin-bottom: 5px;
     padding: 4px 8px;
     border-radius: 4px;
+    text-align: center;
 }
 
 .container {
@@ -45,7 +47,7 @@ h1 {
   }
 
 .userinput {
-  width: 450px;
+  width: 480px;
   border-bottom: 1px solid rgb(144, 186, 222);
   margin: 0px;
   justify-content: center;
