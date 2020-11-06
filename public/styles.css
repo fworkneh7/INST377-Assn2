@@ -1,13 +1,15 @@
 /*CSS*/
 body {
   margin: 0;
+  margin-top: 10%;
+  bottom: 10%;
   padding: 0;
   font-family: serif;
-  background: #3895a8;
+  background: #5cc6db;
 }
 
 .left, .right {
-  background: #3895a8;
+  background: #5cc6db;
   flex: 1;
   flex-grow: 1;
   flex-shrink: 1;
@@ -15,34 +17,48 @@ body {
 }
 
 .middle {
-  background: #3895a8;
-  width: 960px;
+  background: #5cc6db;
+  /* width: 960px; */
 }
 
 h1 {
+    max-width: 480px;
     color: #fff;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    /* margin: 0; */
     margin-bottom: 5px;
     padding: 4px 8px;
     border-radius: 4px;
+    text-align: center;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 960px;
+    max-width: 1600px;
     min-height: 100%;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
   }
 
-@media screen and (max-width: 1600px) {
+.userinput {
+  width: 480px;
+  border-bottom: 1px solid rgb(144, 186, 222);
+  margin: 0px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 3px;
+  background: linear-gradient(rgb(238, 232, 170) 35%, rgb(255, 251, 238) 100%);
+  
+}
+
+@media screen and (max-width: 960px) {
   .container {
     justify-content: center;
   }
