@@ -9,8 +9,6 @@ function findMatches(wordToMatch, restaurants){
 function displayMatches(restaurants){
     const matchArray = findMatches(this.value, restaurants);
     const html = matchArray.map(place => {
-        // const regex = new RegExp(this.value, 'gi');
-        // const 
         return `
           <li>
             <span class="name">${place.name}</span>
