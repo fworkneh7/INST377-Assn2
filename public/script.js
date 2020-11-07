@@ -9,16 +9,18 @@ function findMatches(wordToMatch, restaurants){
 function displayMatches(restaurants){
     const matchArray = findMatches(this.value, restaurants);
     const html = matchArray.map(place => {
+        // const regex = new RegExp(this.value, 'gi');
+        // const 
         return `
-        <li>
-        <span class="name">${place.name}</span>
-        <span class="category">${place.category}</span><br />
-        <address class="address">
-            ${place.address_line_1}
-            ${place.city}
-        </address>
-        </li>
-    `;
+          <li>
+            <span class="name">${place.name}</span>
+            <span class="category">${place.category}</span><br />
+            <address class="address">
+                ${place.address_line_1}
+                ${place.city}
+            </address>
+          </li>
+        `;
     }).join('');
     const suggestions = document.querySelector('.suggestions');
     suggestions.innerHTML = html;
